@@ -1,6 +1,6 @@
 class Beer extends Common{
-    constructor(brand, name, priceNoTax, grade/*, insertionDate*/, beerType){
-        super (brand, name, priceNoTax, grade/*, insertionDate*/)
+    constructor(brand, name, priceNoTax, grade, quantity, beerType){
+        super (brand, name, priceNoTax, grade, quantity)
         this.beerType = beerType
         this.tax = 22
         

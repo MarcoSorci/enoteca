@@ -1,6 +1,6 @@
 class Wine extends Common{
-    constructor(brand, name, priceNoTax, grade/*, insertionDate*/, bottleYear, grapeVariety){
-        super (brand, name, priceNoTax, grade/*, insertionDate*/)
+    constructor(brand, name, priceNoTax, grade, quantity, bottleYear, grapeVariety){
+        super (brand, name, priceNoTax, grade, quantity)
         this.bottleYear = bottleYear
         this.grapeVariety = grapeVariety
         this.tax = 22
@@ -17,7 +17,7 @@ class Wine extends Common{
         let priceWithTax = (this.priceNoTax + ((this.priceNoTax * this.tax) / 100))
         let fullPrice =  (priceWithTax * this.calculateYear() / 100)
         let sum = fullPrice + priceWithTax
-        return sum.toFixed(2) + "€"
+        return sum.toFixed(2) + "€" 
     }
 
     tostring(){

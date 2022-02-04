@@ -4,7 +4,7 @@ class Cellar{
         this.wines = []
         this.superalcs = []
     }
-    
+
     addbeers(beertoadd) {
         for (const beer of this.beers) {
             if (beer === beertoadd) {
@@ -34,7 +34,7 @@ class Cellar{
 
     finditembyname(nametosearch) {
         let array = [...this.beers, ...this.wines, ...this.superalcs]
-        return array.find(x => x.name.toLowerCase() === nametosearch.toLowerCase()) 
+        return array.filter(x => x.name.toLowerCase() === nametosearch.toLowerCase()) 
     }
 
     finditembycode(codetosearch) {
@@ -44,7 +44,7 @@ class Cellar{
 
     finditembygrape(variety) {
         let array = [...this.wines]
-        return array.find(x => x.grapeVariety.toLowerCase() === variety.toLowerCase())
+        return array.filter(x => x.grapeVariety.toLowerCase() === variety.toLowerCase())
     }
 
 
