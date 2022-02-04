@@ -22,6 +22,26 @@ console.log(beer1.tostring());
 console.log(wine2.tostring());
 console.log(super4.tostring());
 
-console.log(wine2.generatecode());
+// console.log(wine2.generatecode());
 console.log(wine2.calculatePrice());
 console.log(super2.calculatePrice());
+
+const cellar = new Cellar();
+cellar.addbeers(beer1)
+cellar.addbeers(beer2)
+cellar.addbeers(beer3)
+cellar.addbeers(beer4)
+cellar.addwines(wine1)
+cellar.addwines(wine2)
+cellar.addwines(wine3)
+cellar.addwines(wine4)
+cellar.addsuperalcs(super1)
+cellar.addsuperalcs(super2)
+cellar.addsuperalcs(super3)
+cellar.addsuperalcs(super4)
+
+console.log(cellar.finditembyname("Rum"));
+console.log(cellar.finditembycode(wine2.uniqueCode));
+console.log(cellar.finditembygrape("vermentino"));
+
+console.log(cellar);

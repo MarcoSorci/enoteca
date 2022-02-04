@@ -7,9 +7,17 @@ class Wine extends Common{
         
     }
     
+    calculateYear(){
+        let currentyear = (new Date()).getFullYear()
+        let age = currentyear - this.bottleYear
+        return age
+    }
+
     calculatePrice(){
-        let priceWithTax = (this.priceNoTax + ((this.priceNoTax * this.tax) / 100)).toFixed(2)
-        return priceWithTax + "€"
+        let priceWithTax = (this.priceNoTax + ((this.priceNoTax * this.tax) / 100))
+        let fullPrice =  (priceWithTax * this.calculateYear() / 100)
+        let sum = fullPrice + priceWithTax
+        return sum.toFixed(2) + "€"
     }
 
     tostring(){

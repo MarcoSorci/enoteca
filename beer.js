@@ -16,4 +16,10 @@ class Beer extends Common{
         "Beer Type: " + this.beerType + "\n"
         return code
     }
+
+    // generatecode(){
+    //     const newcode = super.generatecode() + this.uniqueCode
+    //     return newcode
+    // }
 }
+
