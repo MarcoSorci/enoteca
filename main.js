@@ -50,6 +50,3 @@ beer1.addquantity(2)
 beer1.removequantity(24)
 
 console.log(cellar);
-
-
-//
