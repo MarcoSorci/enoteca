@@ -6,13 +6,12 @@ class Common {
         this.grade = grade;
         this.quantity = quantity;
         this.insertionDate = (new Date()).getFullYear()
-        this.uniqueCode = Common.generatecode(name, brand);
 
     }
 
-    static generatecode(name, brand) {
+    generatecode() {
         // let now = new Date();
-        let code = name[0] + name[1] + brand[0] + brand[1] + (Math.random() * 100).toFixed(); 
+        let code = this.name[0] + this.name[1] + this.brand[0] + this.brand[1] + this.grade //+ (Math.random() * 100).toFixed(); 
         //toFixed converts to string and removes decimals (or sets max decimals)
         return code;
         //this.constructor.name would pick the class name
@@ -25,7 +24,7 @@ class Common {
             "Price: " + this.calculatePrice() + "\n" +
             "Grade: " + this.grade + "%" + "\n" +
             "Insertion Year: " + this.insertionDate + "\n" +
-            "Code: " + this.uniqueCode + "\n"
+            "Code: " + this.generatecode() + "\n"
         return itemDesc;
     }
 
@@ -39,8 +38,9 @@ class Common {
         } else {
             return "Not enough bottles."
         }
-        
     }
+
+
     // calculatePrice(tax){
     //     let priceWithTax = this.priceNoTax + ((this.priceNoTax * tax) / 100)
     //     return priceWithTax
@@ -100,6 +100,7 @@ class Wine extends Common{
         "Bottling Year: " + this.bottleYear 
         return code
     }
+
 }
 class SuperAlc extends Common {
     constructor(brand, name, priceNoTax, grade, quantity) {

@@ -1,4 +1,4 @@
-class Cellar{
+class Cellar {
     constructor() {
         this.beers = []
         this.wines = []
@@ -34,17 +34,58 @@ class Cellar{
 
     finditembyname(nametosearch) {
         let array = [...this.beers, ...this.wines, ...this.superalcs]
-        return array.filter(x => x.name.toLowerCase() === nametosearch.toLowerCase()) 
+        return array.filter(x => x.name.toLowerCase() === nametosearch.toLowerCase())
     }
 
     finditembycode(codetosearch) {
         let array = [...this.beers, ...this.wines, ...this.superalcs]
-        return array.find(x => x.uniqueCode === codetosearch) 
+        return array.find(x => x.generatecode() === codetosearch)    //.filter finds multiples, .find finds only the first
     }
 
     finditembygrape(variety) {
         let array = [...this.wines]
-        return array.filter(x => x.grapeVariety.toLowerCase() === variety.toLowerCase())
+        return array.find(x => x.grapeVariety.toLowerCase() === variety.toLowerCase())
+    }
+
+    addquantitybycode(codetosearch, number) {
+        return this.finditembycode(codetosearch).quantity += number
+    }
+
+    removequantitybycode(codetosearch, number) {
+        if (this.finditembycode(codetosearch).quantity >= number) {
+            return this.finditembycode(codetosearch).quantity -= number
+        } else {
+            return "Not enough bottles."
+        }
+    }
+
+    findquantitybycode(codetosearch) {
+        return this.finditembycode(codetosearch).quantity
+    }
+
+    findquantitybygrape(varietytofind) {
+        return this.finditembygrape(varietytofind).quantity    //not summing quantities
+    }
+
+    findquantitybyyear(yeartosearch) {
+        let array = [...this.wines]
+        return array.filter(x => x.bottleYear === yeartosearch)       //not summing quantities
+    }
+
+    findbeerbytype(type) {
+        let array = [...this.beers]
+        return array.find(x => x.beerType.toLowerCase() === type.toLowerCase())  //issue with find and filter
+    }
+
+    findbeerquantitybytype(type){
+        return this.findbeerbytype(type).quantity   //not summing quantities
+    }
+
+
+
+    getquantitytotal() {
+        let sum = [...this.beers].quantity + [...this.wines].quantity + [...this.superalcs].quantity
+        return sum  //not summing quantities
     }
 
 

@@ -8,8 +8,8 @@ const beer3 = new Beer("Desperados", "Pinuccia", 4, 4, 50, "IPA");
 const beer4 = new Beer("Moretti", "Pinetta", 3, 5.5, 50, "Blonde");
 
 const wine1 = new Wine("Champagne", "Le Bidet", 30, 12, 50, 1999, "Sauvignon");
-const wine2 = new Wine("Colle dei Luni", "Vermentino", 12, 10, 50, 2010, "Vermentino");
-const wine3 = new Wine("Pigato", "Vecchi", 10, 8, 50, 2011, "Montonico");
+const wine2 = new Wine("Colle dei Luni", "Vermentino", 12, 10, 50, 2011, "Vermentino");
+const wine3 = new Wine("Pigato", "Vecchi", 10, 8, 50, 2011, "Vermentino");
 const wine4 = new Wine("Chardonnay", "Le Franc", 18, 7, 50, 2017, "Regine");
 
 const super1 = new SuperAlc("Soplica", "Wodka", 10, 30, 50);
@@ -22,7 +22,7 @@ console.log(beer1.tostring());
 console.log(wine2.tostring());
 console.log(super4.tostring());
 
-// console.log(wine2.generatecode());
+console.log(wine2.generatecode());
 console.log(wine2.calculatePrice());
 console.log(super2.calculatePrice());
 
@@ -43,10 +43,27 @@ cellar.addsuperalcs(super4)
 
 console.log(cellar.finditembyname("Rum"));
 console.log(cellar.finditembyname("Pino"));
-console.log(cellar.finditembycode(wine2.uniqueCode));
+console.log(cellar.finditembycode("PiHe5"));
 console.log(cellar.finditembygrape("vermentino"));
+cellar.addquantitybycode("GiGo40", 23)
+cellar.removequantitybycode("GiGo40", 20)
+console.log(cellar.findquantitybycode("GiGo40"));
+console.log(cellar.finditembycode("GiGo40"));
+cellar.addquantitybycode("VeCo10", 23)
+console.log(cellar.findquantitybygrape("vermentino"));  //not summing quantities
+
+//console.log(cellar.getquantitytotal());   //not summing quantities
+
+console.log(wine2.quantity);
+console.log(wine3.quantity);
+
+console.log(cellar.findquantitybyyear(2011));  //not summing quantities
+
+console.log(cellar.findbeerbytype("IPA"));
 
 beer1.addquantity(2)
 beer1.removequantity(24)
+
+console.log(cellar.findbeerquantitybytype("IPA"));
 
 console.log(cellar);
